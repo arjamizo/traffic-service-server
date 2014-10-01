@@ -5,3 +5,4 @@ add_executable(traffic_service ${server_SOURCES})
 link_libraries(traffic_service messages)
 link_libraries(traffic_service backend)
 
+link_libraries(traffic_service ${ZMQ_LIBRARIES})

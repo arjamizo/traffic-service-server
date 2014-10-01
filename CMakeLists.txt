@@ -8,6 +8,11 @@ find_package(Boost COMPONENTS program_options REQUIRED)
 
 find_package(Protobuf REQUIRED)
 
+find_package(PkgConfig)
+pkg_check_modules(ZMQ REQUIRED libzmq>=3.0)
+
+
+
 add_definitions(-std=c++11)
 
 add_subdirectory(messages)
