@@ -1,0 +1,3 @@
+[submodule "messages/proto"]
+	path = messages/proto
+	url = git@github.com:agdsn/traffic-service-protobuf.git
