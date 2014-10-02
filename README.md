@@ -30,3 +30,8 @@ First make all requirements available, then:
     -h [ --help ]               Print help message.
     -b [ --bind ] arg (=*:3444) address:port combinations to bind to
 
+## Contributing
+
+As long as this is developed by a single person (me) I will push
+directly to this repository. When someone want to join, we should
+clone our personal copies and synchronize via pull-requensts.
