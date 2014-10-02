@@ -1,6 +1,9 @@
 #ifndef __SERVER__COMMANDLINE_H__
 #define __SERVER__COMMANDLINE_H__
 
+#include <string>
+#include <vector>
+
 #include <boost/program_options.hpp>
 
 namespace traffic {
@@ -16,8 +19,11 @@ private:
 	Commandline& operator=(Commandline const &) = delete;
 
 public:
-	Commandline();
+	std::vector<std::string> addresses() const;
+
 	bool parse(int argc, char const *argv[]);
+
+	Commandline();
 	~Commandline() { }
 };
 
