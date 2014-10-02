@@ -11,6 +11,15 @@ To compile this you need:
 * ZeroMQ
 * Boost.Program_options
 
+### Installing
+
+|Program|Command|
+|---|---|
+    Cmake 3.0+|`export fn=/tmp/cmake.sh && ls $fn && (echo "use previous $fn? Enter for yes, ctrl+d for no." && read) || (wget -O $fn http://www.cmake.org/files/v3.0/cmake-3.0.2-Linux-i386.sh 1>&2) && (cd /opt && sudo bash ${fn} && echo sudo ln -f -s /opt/cmake*/bin/cmake /usr/local/bin/cmake && cd -)`
+    Google Protobuf|`sudo apt-get install protobuf-compiler protobuf-c-compiler`
+    ZeroMQ|`sudo apt-get install libzmq3-dev libzmq3-dbg`
+    Boost.Program_options|`sudo apt-get install libboost-program-options-dev`
+
 ## How to build
 
 First make all requirements available, then:
