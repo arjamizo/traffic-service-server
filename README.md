@@ -44,3 +44,47 @@ First make all requirements available, then:
 As long as this is developed by a single person (me) I will push
 directly to this repository. When someone want to join, we should
 clone our personal copies and synchronize via pull-requensts.
+
+## FAQ
+
+### Error: `PROTOBUF_GENERATE_CPP()` called without any proto files
+
+If while building Makefile:
+
+    $ cmake -G 'CodeBlocks - Unix Makefiles'
+
+Such an error occcurs, then definitely submodules are not initialized correctly:
+
+    ...
+    CMake Error at /opt/cmake-3.0.2-Linux-i386/share/cmake-3.0/Modules/FindProtobuf.cmake:144 (message):
+      Error: PROTOBUF_GENERATE_CPP() called without any proto files
+    Call Stack (most recent call first):
+      messages/CMakeLists.txt:3 (PROTOBUF_GENERATE_CPP)
+
+#### Answer
+
+Then you should ensure that submodules were initialized correctly:
+
+    git submodule init # or git submodule update --init
+
+Remember that Git will not reinitialize submodule until it exists in the index,
+so in order to reset submodule, execute:
+
+    git reset -- 'messages/proto' && git submodule update 'messages/proto' || (cd messages/proto && git checkout master) && ls messages/proto
+
+_Command after `||` (double pipe) ensures that even if one has executed `rm messages/proto/*`, state of submodule will be reset._
+
+### Error: `PROTOBUF_PROTOC_EXECUTABLE-NOTFOUND: not found`
+
+If executing
+
+    cmake -G 'CodeBlocks - Unix Makefiles' && make
+
+results in:
+
+    /bin/sh: 1: PROTOBUF_PROTOC_EXECUTABLE-NOTFOUND: not found
+    make[2]: *** [messages/test.pb.cc] Error 127
+    make[1]: *** [messages/CMakeFiles/messages.dir/all] Error 2
+    make: *** [all] Error 2
+
+Then there is no Google Protobuf installed.
