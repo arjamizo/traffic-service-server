@@ -15,15 +15,15 @@ To compile this you need:
 
 First make all requirements available, then:
 
-    git clone git@github.com:agdsn/traffic-service-server.git
-    cd traffic-service-server
-    git submodule init
-    git submodule update
+    $ git clone git@github.com:agdsn/traffic-service-server.git
+    $ cd traffic-service-server
+    $ git submodule init
+    $ git submodule update
     
-    mkdir build
-    cd build
-    cmake .. -DCMAKE_BUILD_TYPE=Debug
-    make
+    $ mkdir build
+    $ cd build
+    $ cmake .. -DCMAKE_BUILD_TYPE=Debug
+    $ make
 
 ## Commandline options
 
