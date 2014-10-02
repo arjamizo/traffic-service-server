@@ -10,7 +10,8 @@ namespace traffic {
 namespace po = boost::program_options;
 
 
-class Commandline {
+class Commandline
+{
 private:
 	po::options_description _desc;
 	po::variables_map _vm;
