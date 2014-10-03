@@ -39,6 +39,29 @@ First make all requirements available, then:
     -h [ --help ]               Print help message.
     -b [ --bind ] arg (=*:3444) address:port combinations to bind to
 
+## How to use in CodeBlocks
+
+Install Code::Blocks and create `Makefile`:
+
+    sudo apt-get install codeblocks
+    ls CMakeLists.txt && cmake -DCMAKE_BUILD_TYPE=Debug
+
+Then
+
+1. Create new project of `Console application` in Codeblocks, ensure that path for `*.cbp` file reminds following tree:
+
+        | + traffic-server-service
+        |   + TSS (Code::Blocks project)
+        |     - project.cbp
+        |   - CMakeLists.txt
+
+2. right click on project and select `Add recursively files` and add all `*.cpp,*.h` files from project directory,
+3. right click on project, select `Properties...`, select `[x] This is custom Makefile`,
+4. change `Execution directory` to that one which will directly contains `CMakeLists.txt`,
+5. right click on the project, go to `Properties...`, then `Build targets` and rename _Debug_ build target to `all` (CMake by default generates target `all`),
+    * also change `Output filename` to `../server/traffic_service` (so CB will know where executable file is located),
+6. now you can run project from Code::Blocks (even in debug mode - `F8`).
+
 ## Contributing
 
 As long as this is developed by a single person (me) I will push
